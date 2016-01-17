@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0E31BE4C1C493A6C00EAD45A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E31BE4B1C493A6C00EAD45A /* AppDelegate.swift */; };
-		0E31BE4E1C493A6C00EAD45A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E31BE4D1C493A6C00EAD45A /* ViewController.swift */; };
 		0E31BE511C493A6C00EAD45A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E31BE4F1C493A6C00EAD45A /* Main.storyboard */; };
 		0E31BE541C493A6C00EAD45A /* HelloWorld.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E31BE521C493A6C00EAD45A /* HelloWorld.xcdatamodeld */; };
 		0E31BE561C493A6C00EAD45A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E31BE551C493A6C00EAD45A /* Assets.xcassets */; };
 		0E31BE591C493A6C00EAD45A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E31BE571C493A6C00EAD45A /* LaunchScreen.storyboard */; };
 		0E31BE641C493A6D00EAD45A /* HelloWorldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E31BE631C493A6D00EAD45A /* HelloWorldTests.swift */; };
 		0E31BE6F1C493A6D00EAD45A /* HelloWorldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E31BE6E1C493A6D00EAD45A /* HelloWorldUITests.swift */; };
+		0E31BE7D1C4A940800EAD45A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E31BE4D1C493A6C00EAD45A /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -259,8 +259,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E31BE7D1C4A940800EAD45A /* ViewController.swift in Sources */,
 				0E31BE541C493A6C00EAD45A /* HelloWorld.xcdatamodeld in Sources */,
-				0E31BE4E1C493A6C00EAD45A /* ViewController.swift in Sources */,
 				0E31BE4C1C493A6C00EAD45A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,7 +352,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -390,7 +390,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
