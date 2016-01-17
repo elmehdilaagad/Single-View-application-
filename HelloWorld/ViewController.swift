@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func searchItunesFor(searchTerm: String) {
         let itunesSearchTerm = searchTerm.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
-        let escapedSearchTerm = itunesSearchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+        let escapedSearchTerm : String = itunesSearchTerm.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
         let urlPath: String = "https://itunes.apple.com/search?term=\(escapedSearchTerm)&media=software"
         print("https://itunes.apple.com/search?term=\(escapedSearchTerm)&media=software")
         let url : NSURL = NSURL(string: urlPath)!
