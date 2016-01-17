@@ -22,11 +22,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let session = NSURLSession.sharedSession()
         session.dataTaskWithURL(url, completionHandler: {(data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
             do {
-                if let ipString = NSString(data:data!, encoding:NSUTF8StringEncoding){
+                if let _ = NSString(data:data!, encoding:NSUTF8StringEncoding){
                     let jsonDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
                     
                     let results: NSArray = jsonDictionary!["results"] as! NSArray
-                    dispatch_async(dispatch_get_main_queue(), {
+                    dispatch_async(dispatch_get_main_queue(),{
                         self.tableData = results
                         self.appsTableView?.reloadData()
                     })
