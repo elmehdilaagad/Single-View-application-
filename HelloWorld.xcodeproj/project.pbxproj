@@ -14,7 +14,8 @@
 		0E31BE591C493A6C00EAD45A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E31BE571C493A6C00EAD45A /* LaunchScreen.storyboard */; };
 		0E31BE641C493A6D00EAD45A /* HelloWorldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E31BE631C493A6D00EAD45A /* HelloWorldTests.swift */; };
 		0E31BE6F1C493A6D00EAD45A /* HelloWorldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E31BE6E1C493A6D00EAD45A /* HelloWorldUITests.swift */; };
-		0E31BE7D1C4A940800EAD45A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E31BE4D1C493A6C00EAD45A /* ViewController.swift */; };
+		0E31BE7D1C4A940800EAD45A /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E31BE4D1C493A6C00EAD45A /* SearchResultsViewController.swift */; };
+		0E96AC7F1C4D4263009F9850 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E96AC7E1C4D4263009F9850 /* APIController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,7 @@
 /* Begin PBXFileReference section */
 		0E31BE481C493A6C00EAD45A /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E31BE4B1C493A6C00EAD45A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0E31BE4D1C493A6C00EAD45A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0E31BE4D1C493A6C00EAD45A /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		0E31BE501C493A6C00EAD45A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0E31BE531C493A6C00EAD45A /* HelloWorld.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HelloWorld.xcdatamodel; sourceTree = "<group>"; };
 		0E31BE551C493A6C00EAD45A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +50,7 @@
 		0E31BE6A1C493A6D00EAD45A /* HelloWorldUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloWorldUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E31BE6E1C493A6D00EAD45A /* HelloWorldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloWorldUITests.swift; sourceTree = "<group>"; };
 		0E31BE701C493A6D00EAD45A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E96AC7E1C4D4263009F9850 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				0E31BE4B1C493A6C00EAD45A /* AppDelegate.swift */,
-				0E31BE4D1C493A6C00EAD45A /* ViewController.swift */,
+				0E31BE4D1C493A6C00EAD45A /* SearchResultsViewController.swift */,
+				0E96AC7E1C4D4263009F9850 /* APIController.swift */,
 				0E31BE4F1C493A6C00EAD45A /* Main.storyboard */,
 				0E31BE551C493A6C00EAD45A /* Assets.xcassets */,
 				0E31BE571C493A6C00EAD45A /* LaunchScreen.storyboard */,
@@ -259,7 +262,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E31BE7D1C4A940800EAD45A /* ViewController.swift in Sources */,
+				0E96AC7F1C4D4263009F9850 /* APIController.swift in Sources */,
+				0E31BE7D1C4A940800EAD45A /* SearchResultsViewController.swift in Sources */,
 				0E31BE541C493A6C00EAD45A /* HelloWorld.xcdatamodeld in Sources */,
 				0E31BE4C1C493A6C00EAD45A /* AppDelegate.swift in Sources */,
 			);
@@ -486,6 +490,7 @@
 				0E31BE751C493A6D00EAD45A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0E31BE761C493A6D00EAD45A /* Build configuration list for PBXNativeTarget "HelloWorldTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +499,7 @@
 				0E31BE781C493A6D00EAD45A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0E31BE791C493A6D00EAD45A /* Build configuration list for PBXNativeTarget "HelloWorldUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +508,7 @@
 				0E31BE7B1C493A6D00EAD45A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
