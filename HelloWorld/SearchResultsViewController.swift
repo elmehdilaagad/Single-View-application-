@@ -10,6 +10,8 @@ import UIKit
 
 class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIControllerProtocol {
     
+    
+    let kCellIdentifier : String = "SearchResultCell"
     var api = APIController()
     
     @IBOutlet var appsTableView : UITableView?
@@ -46,7 +48,8 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
        
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "MyTestCell")
+        let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier)! as UITableViewCell
+        //let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "MyTestCell")
         
         let rowData: NSDictionary = self.tableData[indexPath.row] as! NSDictionary
         
