@@ -20,7 +20,7 @@ class APIController {
         let itunesSearchTerm = searchTerm.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
         let escapedSearchTerm : String = itunesSearchTerm.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
         let urlPath: String = "https://itunes.apple.com/search?term=\(escapedSearchTerm)&media=software"
-        print("https://itunes.apple.com/search?term=\(escapedSearchTerm)&media=software")
+        //print("https://itunes.apple.com/search?term=\(escapedSearchTerm)&media=software")
         let url : NSURL = NSURL(string: urlPath)!
         let session = NSURLSession.sharedSession()
         session.dataTaskWithURL(url, completionHandler: {(data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in

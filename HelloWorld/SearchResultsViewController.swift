@@ -22,7 +22,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         
         super.viewDidLoad()
         self.api.delegate = self
-        api.searchItunesFor("Mixit")
+        api.searchItunesFor("pica pica")
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -77,6 +77,20 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         
         return cell
         */
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // Obtenir les données pour la ligne sélectionnée
+        let rowData: NSDictionary = self.tableData[indexPath.row] as! NSDictionary
+        
+        let name: String = rowData["trackName"]as! String
+        let formattedPrice: String = rowData["formattedPrice"] as! String
+        
+        let alert: UIAlertView = UIAlertView()
+        alert.title = name
+        alert.message = formattedPrice
+        alert.addButtonWithTitle("Ok")
+        alert.show()
     }
 }
 
