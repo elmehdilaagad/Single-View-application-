@@ -22,7 +22,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         
         super.viewDidLoad()
         self.api.delegate = self
-        api.searchItunesFor("pica pica")
+        api.searchItunesFor("facebook")
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -70,13 +70,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         
         return cell
         
-        /*
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "MyTestCell")
-         cell.textLabel!.text = "Ligne #\(indexPath.row)"
-         cell.detailTextLabel!.text = "Subtitle #\(indexPath.row)"
-        
-        return cell
-        */
+    
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

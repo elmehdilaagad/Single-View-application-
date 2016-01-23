@@ -36,7 +36,7 @@ class APIController {
                     })
                 }
             }catch{
-                print("Bad ")
+                print("Bad operation")
             }
         }).resume()
         
