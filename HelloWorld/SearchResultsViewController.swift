@@ -42,7 +42,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        //return 10;
+        /* return 10;  */
         return tableData.count
     }
 
