@@ -13,7 +13,7 @@ class APIController {
     var delegate: APIControllerProtocol?
     
     init(){
-        
+    
     }
     
     func searchItunesFor(searchTerm: String) {
@@ -38,27 +38,6 @@ class APIController {
                 print("Bad operation")
             }
         }).resume()
-        
-        /*
-        
-        if(error) {
-        /* Si une erreur survient lors de la requête web, l'afficher en console */
-        println(error.localizedDescription)
-        }
-        var err: NSError?
-        var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as NSDictionary
-        if(err != nil) {
-        /* Si une erreur survient pendant l'analyse du JSON, l'afficher en console */
-        println("JSON Error \(err!.localizedDescription)")
-        }
-        let results: NSArray = jsonResult["results"] as NSArray
-        dispatch_async(dispatch_get_main_queue(), {
-        self.tableData = results
-        self.appsTableView!.reloadData()
-        })
-        })
-        task.resume()
-        */
     }
     
 }

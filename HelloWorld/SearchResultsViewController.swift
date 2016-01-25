@@ -22,7 +22,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         
         super.viewDidLoad()
         self.api.delegate = self
-        api.searchItunesFor("facebook")
+        api.searchItunesFor("twiter")
         
         // Do any additional setup after loading the view, typically from a nib.
     }
