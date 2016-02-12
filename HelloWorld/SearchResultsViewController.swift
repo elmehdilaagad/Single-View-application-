@@ -10,7 +10,7 @@ import UIKit
 
 class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIControllerProtocol {
     
-    
+    var imageCache = [String : UIImage]()
     let kCellIdentifier : String = "SearchResultCell"
     var api = APIController()
     
@@ -26,7 +26,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -37,17 +37,18 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         dispatch_async(dispatch_get_main_queue(), {
             self.tableData = resultsArr
             self.appsTableView!.reloadData()
-        }) 
+        })
     }
-
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         /* return 10;  */
         return tableData.count
     }
-
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-       
+        
+        /*
         let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier)! as UITableViewCell
         //let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "MyTestCell")
         
@@ -69,8 +70,67 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         cell.detailTextLabel!.text = formattedPrice as String
         
         return cell
+        */
         
-    
+        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier)! as UITableViewCell
+        
+        var rowData: NSDictionary = self.tableData[indexPath.row] as! NSDictionary
+        
+        // Ajout d'une vérification pour s'assurer qu'il existe.
+        let cellText: String? = rowData["trackName"] as? String
+        cell.textLabel!.text = cellText
+        cell.imageView!.image = UIImage(named: "Blank52")
+        
+        
+        // Obtenir le prix formaté pour l'afficher dans le sous-titre.
+        let formattedPrice: NSString = rowData["formattedPrice"] as! NSString
+        
+        // Utiliser dans une tâche de fond afin d'obtenir l'image de cet élément.
+        
+        // Obtention de la valeur de la clef « artworkUrl60 » afin d'obtenir l'URL de l'image miniature de l'application.
+        
+        
+        let urlString = rowData["artworkUrl60"] as! String
+        
+        // Vérifier si notre cache d'images contient la clef. La structure est simplement un dictionnaire d'UIImages.
+        //var image: UIImage? = self.imageCache.valueForKey(urlString) as? UIImage
+        var image = self.imageCache[urlString]
+        
+        
+        if( image == nil ) {
+            // Si l'image n'existe pas, nous devons la télécharger.
+            let imgURL: NSURL = NSURL(string: urlString)!
+            
+            // Télécharger un NSData contenant l'image de l'URL.
+            let request: NSURLRequest = NSURLRequest(URL: imgURL)
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse?,data: NSData?,error: NSError?) -> Void in
+                if error == nil {
+                    image = UIImage(data: data!)
+                    
+                    // Stocker l'image dans notre cache.
+                    self.imageCache[urlString] = image
+                    if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
+                        cellToUpdate.imageView!.image = image
+                    }
+                }
+                else {
+                    print("Error: \(error!.localizedDescription)")
+                }
+            })
+            
+        }
+        else {
+            dispatch_async(dispatch_get_main_queue(), {
+                if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
+                    cellToUpdate.imageView!.image = image
+                }
+            })
+        }
+        
+        cell.detailTextLabel!.text = formattedPrice as String
+        
+        return cell
+        
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
