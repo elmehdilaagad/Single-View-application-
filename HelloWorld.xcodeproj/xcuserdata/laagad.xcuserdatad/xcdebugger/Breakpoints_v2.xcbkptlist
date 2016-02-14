@@ -138,7 +138,7 @@
                   moduleName = "HelloWorld"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/laagad/Documents/Xcode/HelloWorld/HelloWorld/SearchResultsViewController.swift"
-                  timestampString = "477066909.028921"
+                  timestampString = "477181879.121634"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -153,7 +153,7 @@
                   moduleName = "HelloWorld"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/laagad/Documents/Xcode/HelloWorld/HelloWorld/SearchResultsViewController.swift"
-                  timestampString = "477066909.029275"
+                  timestampString = "477181879.121872"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -168,7 +168,7 @@
                   moduleName = "HelloWorld"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/laagad/Documents/Xcode/HelloWorld/HelloWorld/SearchResultsViewController.swift"
-                  timestampString = "477066909.029609"
+                  timestampString = "477181879.122065"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
@@ -183,7 +183,7 @@
                   moduleName = "HelloWorld"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/laagad/Documents/Xcode/HelloWorld/HelloWorld/SearchResultsViewController.swift"
-                  timestampString = "477066909.029941"
+                  timestampString = "477181879.122251"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
@@ -254,6 +254,22 @@
             startingLineNumber = "48"
             endingLineNumber = "48"
             landmarkName = "searchItunesFor(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HelloWorld/DetailViewController.swift"
+            timestampString = "477181850.85377"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

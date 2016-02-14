@@ -15,6 +15,7 @@ class DetailViewController: UIViewController, APIControllerProtocol {
     var album: Album?
     var tracks = [Track]()
     var mediaPlayer: MPMoviePlayerController = MPMoviePlayerController()
+    var indexOfTrackPlaying : NSIndexPath? = nil
     
     @IBOutlet weak var tracksTableView: UITableView!
     @IBOutlet weak var albumCover: UIImageView!
@@ -43,6 +44,42 @@ class DetailViewController: UIViewController, APIControllerProtocol {
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let track = tracks[indexPath.row]
+        var indexPathThatWasPlaying : NSIndexPath? = nil
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) as? TrackCell {
+            if(trackPlaying(indexPath)) {
+                cell.playIcon.text = "▶️"
+                stopPlayingTrack()
+            }
+            else {
+                cell.playIcon.text = "⏹"
+                indexPathThatWasPlaying = stopPlayingTrack()
+                mediaPlayer.contentURL = NSURL(string: track.previewUrl)
+                mediaPlayer.play()
+                indexOfTrackPlaying = indexPath
+            }
+            var paths : [NSIndexPath] = [indexPath]
+            if (indexPathThatWasPlaying != nil)
+            {
+                paths = [indexPath, indexPathThatWasPlaying!]
+            }
+            tableView.reloadRowsAtIndexPaths(paths, withRowAnimation: UITableViewRowAnimation.None)
+        }
+    }
+    func stopPlayingTrack() -> NSIndexPath?
+    {
+        mediaPlayer.stop()
+        let indexPathThatWasPlaying = indexOfTrackPlaying
+        indexOfTrackPlaying = nil
+        return indexPathThatWasPlaying
+    }
+    
+    func trackPlaying(indexPath: NSIndexPath) -> Bool {
+        return indexOfTrackPlaying == indexPath
+    }
+    
+/*
         let track = tracks[indexPath.row]
         mediaPlayer.stop()
         mediaPlayer.contentURL = NSURL(string: track.previewUrl)
@@ -51,7 +88,7 @@ class DetailViewController: UIViewController, APIControllerProtocol {
             cell.playIcon.text = "⏹"
         }
     }
-    
+*/
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tracks.count
     }
@@ -63,5 +100,12 @@ class DetailViewController: UIViewController, APIControllerProtocol {
         cell.playIcon.text = "▶️"
         print("table view")
         return cell
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.layer.transform = CATransform3DMakeScale(0.1,0.1,1)
+        UIView.animateWithDuration(0.50, animations: {
+            cell.layer.transform = CATransform3DMakeScale(1,1,1)
+        })
     }
 }
