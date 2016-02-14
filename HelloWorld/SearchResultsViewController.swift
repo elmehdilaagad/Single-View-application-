@@ -24,7 +24,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         api = APIController(delegate: self)
         // networkActivityIndicator : Pour montrer à l'utilisateur qu'on va utiliser une opération de réseau qui se déroule
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        api.searchItunesFor("twiter")
+        api.searchItunesFor("Beatles")
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -33,6 +33,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     func didReceiveAPIResults(results: NSArray) {
         dispatch_async(dispatch_get_main_queue(), {

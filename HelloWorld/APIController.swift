@@ -16,12 +16,8 @@ class APIController {
         self.delegate = delegate
     }
     
-    
-    func searchItunesFor(searchTerm: String) {
-        let itunesSearchTerm = searchTerm.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
-        let escapedSearchTerm : String = itunesSearchTerm.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
-        let urlPath: String = "https://itunes.apple.com/search?term=\(escapedSearchTerm)&media=music&entity=album"
-        let url : NSURL = NSURL(string: urlPath)!
+    func get(path: String) {
+        let url : NSURL = NSURL(string: path)!
         let session = NSURLSession.sharedSession()
         session.dataTaskWithURL(url, completionHandler: {(data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
             do {
@@ -39,6 +35,18 @@ class APIController {
                 print("Bad operation")
             }
         }).resume()
+    }
+
+    func lookupAlbum(collectionId: Int) {
+        get("https://itunes.apple.com/lookup?id=\(collectionId)&entity=song")
+    }
+        
+    
+    func searchItunesFor(searchTerm: String) {
+        let itunesSearchTerm = searchTerm.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
+        let escapedSearchTerm : String = itunesSearchTerm.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+        let urlPath: String = "https://itunes.apple.com/search?term=\(escapedSearchTerm)&media=music&entity=album"
+        get(urlPath)
     }
     
 }

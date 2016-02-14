@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oKp-ml-nCi">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="528"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchResultCell" textLabel="df2-p1-Kv9" detailTextLabel="31t-kc-Vzu" style="IBUITableViewCellStyleSubtitle" id="SIc-9E-WnY">
@@ -69,7 +69,6 @@
         <!--Detail View Controller-->
         <scene sceneID="tUb-V6-ORR">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6ya-xI-Nj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="DetailViewController" id="RwF-ex-le5" customClass="DetailViewController" customModule="HelloWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fcc-G4-gEj"/>
@@ -88,6 +87,43 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LKM-35-ZdA">
                                 <rect key="frame" x="15" y="150" width="132" height="86"/>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MQ6-Mm-nZD">
+                                <rect key="frame" x="0.0" y="276" width="600" height="336"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TrackCell" id="Yj3-BB-zXZ" customClass="TrackCell" customModule="HelloWorld">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yj3-BB-zXZ" id="Z6S-Fa-j3R">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="▶️" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="365-e7-b12">
+                                                    <rect key="frame" x="28" y="8" width="30" height="26"/>
+                                                    <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="24"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HY1-h0-waw">
+                                                    <rect key="frame" x="71" y="11" width="248" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="playIcon" destination="365-e7-b12" id="60G-Ks-pA2"/>
+                                            <outlet property="titleLabel" destination="HY1-h0-waw" id="X0h-Q4-Csm"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="RwF-ex-le5" id="1K5-1X-yfN"/>
+                                    <outlet property="delegate" destination="RwF-ex-le5" id="GVb-dW-FLC"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -95,15 +131,16 @@
                     <connections>
                         <outlet property="albumCover" destination="LKM-35-ZdA" id="xzQ-q8-1hT"/>
                         <outlet property="titleLabel" destination="xuG-Wm-1fe" id="Zbn-bE-PqB"/>
+                        <outlet property="tracksTableView" destination="MQ6-Mm-nZD" id="KFy-i3-mqZ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6ya-xI-Nj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1999" y="265"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EBW-q4-agE">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0WV-2B-gbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="ewS-ql-ML6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="BTo-xr-QYf"/>
@@ -116,6 +153,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Euv-zo-klq"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0WV-2B-gbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="685" y="265"/>
         </scene>
