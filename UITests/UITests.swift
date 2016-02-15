@@ -1,14 +1,14 @@
 //
-//  HelloWorldUITests.swift
-//  HelloWorldUITests
+//  UITests.swift
+//  UITests
 //
-//  Created by Laagad El Mehdi on 15/01/2016.
+//  Created by Laagad El Mehdi on 15/02/2016.
 //  Copyright © 2016 Laagad El Mehdi. All rights reserved.
 //
 
 import XCTest
 
-class HelloWorldUITests: XCTestCase {
+class UITests: XCTestCase {
         
     override func setUp() {
         super.setUp()
@@ -28,9 +28,24 @@ class HelloWorldUITests: XCTestCase {
         super.tearDown()
     }
     
+    
     func testExample() {
+        
+        
+        
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["The Beatles 1962-1966 (The Red Album)"].tap()
+        tablesQuery.staticTexts["Love Me Do"].tap()
+        tablesQuery.cells.containingType(.StaticText, identifier:"Love Me Do").childrenMatchingType(.StaticText).matchingIdentifier("Love Me Do").elementBoundByIndex(0).tap()
+        tablesQuery.staticTexts["I Want to Hold Your Hand"].tap()
+        tablesQuery.cells.containingType(.StaticText, identifier:"I Want to Hold Your Hand").childrenMatchingType(.StaticText).matchingIdentifier("I Want to Hold Your Hand").elementBoundByIndex(0).tap()
+        app.navigationBars["HelloWorld.DetailView"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
+        
+  
     }
     
 }
